@@ -32,4 +32,5 @@ RUN apt-get update && \
 ADD build-git-crypt.sh build-git-crypt.sh
 RUN chmod +x build-git-crypt.sh && ./build-git-crypt.sh && rm build-git-crypt.sh
 
-RUN echo "AddressFamily inet" >> /etc/ssh/sshd_config
+ADD ssh-tweaks.sh ssh-tweaks.sh
+RUN chmod +x ssh-tweaks.sh && ./ssh-tweaks.sh && rm ssh-tweaks.sh
