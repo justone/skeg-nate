@@ -1,5 +1,7 @@
 FROM skegio/clojure:java11
 
+RUN apt-get update && apt-get upgrade -y
+
 # Holen
 RUN wget https://github.com/holen-app/holen/releases/download/v0.3.0/holen_linux_amd64 -O /usr/local/bin/holen && \
     chmod a+x /usr/local/bin/holen
@@ -9,7 +11,7 @@ RUN add-apt-repository ppa:jonathonf/vim && \
     apt-get update && apt-get install -y vim-nox
 
 # Neovim
-RUN wget https://github.com/neovim/neovim/releases/download/v0.7.2/nvim-linux64.deb && \
+RUN wget https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.deb && \
     dpkg -i nvim-linux64.deb && \
     rm nvim-linux64.deb && \
     apt-get update && \
